@@ -5,4 +5,5 @@ def pow(a, b):
     r = 1
     while i < b:
         r *= a
+        i += 1
     return r
