@@ -12,5 +12,3 @@ def fizzbuzz():
             print('Buzz', end=' ')
         else:
             print('{:d}'.format(k), end=' ')
-
-    print('')
