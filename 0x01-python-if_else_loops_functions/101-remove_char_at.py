@@ -11,4 +11,4 @@ def remove_char_at(str, n):
             string += str[i]
         i += 1
 
-    print(string)
+    return string
