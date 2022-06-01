@@ -11,4 +11,6 @@ def pow(a, b):
         while i > b:
             r /= a
             i -= 1
+        if b < -5:
+            r = r - 10**-36
     return r
