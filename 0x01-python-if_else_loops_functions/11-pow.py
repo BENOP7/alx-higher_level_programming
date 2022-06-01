@@ -8,7 +8,7 @@ def pow(a, b):
             r *= a
             i += 1
     if b < 0:
-        while i < b:
+        while i > b:
             r /= a
             i += 1
     return r
