@@ -10,5 +10,5 @@ def pow(a, b):
     if b < 0:
         while i > b:
             r /= a
-            i += 1
+            i -= 1
     return r
