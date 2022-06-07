@@ -5,7 +5,7 @@ from calculator_1 import sub
 from calculator_1 import mul
 from calculator_1 import div
 
-if __name__=='__main__':
+if __name__ == '__main__':
     a = 10
     b = 5
 
