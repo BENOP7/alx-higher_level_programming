@@ -8,7 +8,7 @@ if __name__ == '__main__':
     if ac != 2:
         statement = 's'.join([statement, ''])
     statement = ':'.join([statement, '']) if ac != 1\
-else '.'.join([statement, ''])
+        else '.'.join([statement, ''])
     print(statement)
 
     for argument in argv:
