@@ -2,7 +2,7 @@
 
 from sys import argv
 
-if __name__=='__main__':
+if __name__ == '__main__':
     ac = len(argv)
     statement = '{:d} argument'.format(ac - 1)
     if ac != 2:
