@@ -3,7 +3,7 @@
 def square_matrix_simple(matrix=[]):
 	cpy = []
 	
-	if !matrix:
+	if matrix == None:
 		return
 	for row in matrix:
 		cpy.append(list(map(square, row)))
