@@ -1,11 +1,9 @@
 #!/usr/bin/python3
 
 def uniq_add(my_list=[]):
-    myls = []
 
-    if my_list:
-        for elt in my_list:
-            if my_list.count(elt) == 1:
-                myls.append(elt)
+    r = my_list.copy()
+    if r:
+        r = list(set())
 
-    return myls
+    return sum(r)
