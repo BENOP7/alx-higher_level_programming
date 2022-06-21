@@ -2,7 +2,7 @@
 
 def safe_print_list(my_list=[], x=0):
     n = i = 0
-    while n != x
+    while n != x:
         try:
             e = int(my_list[i])
         except ValueError:
