@@ -6,17 +6,8 @@
 class Square:
     """ Square represents a square model """
     def __init__(self, size=0, position=(0, 0)):
-        if type(size) != int:
-            raise TypeError('size must be an integer')
-        elif size < 0:
-            raise ValueError('size must be >= 0')
-        else:
-            self.__size = size
-        if isinstance(position, tuple) and len(position) == 2:
-            if isinstance(position[0], int) and isinstance(position[-1], int):
-                self.__position = position
-        else:
-            raise TypeError('position must be a tuple of 2 positive integers')
+        self.__size = size
+        self.__position = position
 
     def area(self):
         """ Return the area of the square """
@@ -53,6 +44,7 @@ class Square:
     def my_print(self):
         """ Print the square using '#' """
         if self.__size:
+            print('\n' * self.position[-1], end='')
             for i in range(self.__size):
                 print(' ' * self.position[0] + '#' * self.__size)
         else:
