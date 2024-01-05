@@ -12,7 +12,7 @@ if __name__ == '__main__':
     op = av[2]
 
     if op not in ops:
-        print("Usage: {} <a> <operator> <b>".format(av[0]))
+        print("Unknown operator. Available operators: +, -, * and /")
         quit(1)
     if op == '+':
         print('{:d} {} {:d} = {:d}'.format(a, op, b, add(a, b)))
