@@ -1,0 +1,5 @@
+[0-9]*-main.*
+palindrome
+__py*
+*test.py
+
