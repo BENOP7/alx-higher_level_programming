@@ -6,7 +6,7 @@ def uniq_add(my_list=[]):
     if my_list is None:
         return total
     number_set = set(my_list)
-    for n in my_list:
+    for n in number_set:
         total += n
     return total
 
