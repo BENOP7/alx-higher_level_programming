@@ -47,6 +47,9 @@ class Square:
 
     @position.setter
     def position(self, value):
+        '''
+            changes the value of the position of the square
+        '''
         if type(value) is tuple and len(value) == 2 and
         type(value[0]) is int and type(value[1]) is int:
             self.__position = value
@@ -60,6 +63,9 @@ class Square:
         return self.__size ** 2
 
     def my_print(self):
+        '''
+            print the square using # characters based on the position too
+        '''
         if self.__size == 0:
             print()
             return
