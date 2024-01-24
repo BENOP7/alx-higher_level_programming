@@ -65,5 +65,7 @@ class Square:
             return
         for i in range(self.__size):
             for j in range(self.__size):
+                if j == 0:
+                    print(''.join([' ' for e in range(self.__position[0])]))
                 print('#', end='')
             print()
