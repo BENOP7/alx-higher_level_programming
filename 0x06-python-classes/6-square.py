@@ -14,9 +14,9 @@ class Square:
         if size < 0:
             raise ValueError('size must be >= 0')
         self.__size = size
-        if type(position) is tuple and len(position) == 2 and
-        type(position[0]) is int and type(position[1]) is int:
-            self.__position = value
+        if type(position) is tuple and len(position) == 2:
+            if type(position[0]) is int and type(position[1]) is int:
+                self.__position = position
         else:
             raise TypeError('position must be a tuple of 2 positive integers')
 
@@ -50,9 +50,9 @@ class Square:
         '''
             changes the value of the position of the square
         '''
-        if type(value) is tuple and len(value) == 2 and
-        type(value[0]) is int and type(value[1]) is int:
-            self.__position = value
+        if type(value) is tuple and len(value) == 2:
+            if type(value[0]) is int and type(value[1]) is int:
+                self.__position = value
         else:
             raise TypeError('position must be a tuple of 2 positive integers')
 
@@ -69,9 +69,12 @@ class Square:
         if self.__size == 0:
             print()
             return
+        if self.__position[1] > 0:
+            for n in range(self.__position[1]):
+                print()
         for i in range(self.__size):
             for j in range(self.__size):
                 if j == 0:
-                    print(''.join([' ' for e in range(self.__position[0])]))
+                    print(''.join([' ' for e in range(self.__position[0])]), end='')
                 print('#', end='')
             print()
