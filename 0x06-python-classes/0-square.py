@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 '''
-    Implementation of a simple python class, Square
+    Implements a simple python class, Square
 '''
 
 
 class Square:
     '''
-        A simple class
+        A simple class in python
     '''
     pass
