@@ -1,0 +1,143 @@
+The `0-add_integer` module
+===========================
+
+Using the `add_integer`
+------------------------
+a and b are all +ve
+
+>>> from math import inf
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(3, 2)
+5
+
+_____________________________________
+a is +ve and b is -ve
+
+>>> add_integer(1, -2)
+-1
+
+_____________________________________
+a is -ve and b is +ve
+
+>>> add_integer(-1,2)
+1
+
+_____________________________________
+a is non-zero and b is zero
+
+>>> add_integer(3,0)
+3
+
+_____________________________________
+a is zero and b is non-zero
+
+>>> add_integer(0,2)
+2
+
+_____________________________________
+a is -ve and b is inf
+
+>>> add_integer(-1,inf)
+Traceback (most recent call last):
+  ...
+OverflowError: cannot convert float infinity to integer
+
+_____________________________________
+a is +ve and b is inf
+
+>>> add_integer(1,inf)
+Traceback (most recent call last):
+  ...
+OverflowError: cannot convert float infinity to integer
+
+_____________________________________
+a is inf and b is +ve
+
+>>> add_integer(inf,1)
+Traceback (most recent call last):
+  ...
+OverflowError: cannot convert float infinity to integer
+
+_____________________________________
+a is inf and b is -ve
+
+>>> add_integer(inf,-1)
+Traceback (most recent call last):
+  ...
+OverflowError: cannot convert float infinity to integer
+
+_____________________________________
+a is +ve and b is -inf
+
+>>> add_integer(1,-inf)
+Traceback (most recent call last):
+  ...
+OverflowError: cannot convert float infinity to integer
+
+_____________________________________
+a is -ve and b is -inf
+
+>>> add_integer(-1,inf)
+Traceback (most recent call last):
+  ...
+OverflowError: cannot convert float infinity to integer
+
+_____________________________________
+a is -inf and b is +ve
+
+>>> add_integer(-inf,1)
+Traceback (most recent call last):
+  ...
+OverflowError: cannot convert float infinity to integer
+
+_____________________________________
+a is -inf and b is -ve
+
+>>> add_integer(-inf,-1)
+Traceback (most recent call last):
+  ...
+OverflowError: cannot convert float infinity to integer
+
+_____________________________________
+a is number and b is string
+>>> add_integer(2, '3')
+Traceback (most recent call last):
+  ...
+TypeError: b must be an integer
+
+_____________________________________
+a is '1' and b is 3
+>>> add_integer('1' , 3)
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+_____________________________________
+a is and b is
+>>> add_integer(3,[1, 2, 3])
+Traceback (most recent call last):
+  ...
+TypeError: b must be an integer
+
+_____________________________________
+a is and b is
+>>> add_integer([1,2,3],1)
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+--------------------------------------
+a is a float and b is a float (not infinity)
+
+>>> add_integer(3.4, 8.1)
+11
+
+------------------------------------------
+no argument passed to the function
+
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+-------------------------------------------------------------------------------
