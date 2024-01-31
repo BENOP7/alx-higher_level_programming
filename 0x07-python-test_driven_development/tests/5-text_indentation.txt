@@ -95,3 +95,8 @@ Plus semper voluptatis?
 <BLANKLINE>
 
 -------------------------------------------------------------------------------
+
+>>> text_indentation('Holberton.School')
+Holberton.
+<BLANKLINE>
+School
