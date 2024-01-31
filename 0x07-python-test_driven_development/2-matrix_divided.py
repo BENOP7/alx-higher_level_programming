@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 '''
 This module contains the function `matrix_divided` that divides
 a matrix by a constant (int or float)
