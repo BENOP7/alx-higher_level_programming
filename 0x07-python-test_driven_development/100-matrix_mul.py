@@ -6,6 +6,14 @@ multiplication
 
 
 def matrix_mul(m_a, m_b):
+    '''
+    multiplies two matrices if they are compatible
+    for multiplication
+
+    Arguments:
+        m_a: first matrix
+        m_b: second matrix
+    '''
     if type(m_a) is not list:
         raise TypeError('m_a must be a list')
     if len(m_a) == 0:
