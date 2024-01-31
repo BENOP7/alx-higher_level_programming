@@ -1,0 +1,97 @@
+This file contains test cases for ``5-text_indentation`` module
+=====================================================================
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+-------------------------------------------------------------------------------
+<<< No argument passed
+>>> text_indentation()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+-------------------------------------------------------------------------------
+<<< Not a defined
+>>> text_indentation(None)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+-------------------------------------------------------------------------------
+<<< Not a string
+>>> text_indentation([])
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+-------------------------------------------------------------------------------
+<<< first delimiter is a period
+>>> text_indentation('In the beginning, God created the Heavens and the Earth. The earth was without form!')
+In the beginning, God created the Heavens and the Earth.
+<BLANKLINE>
+The earth was without form!
+
+-------------------------------------------------------------------------------
+<<< first delimiter is a colon (:)
+>>> text_indentation('Definition: God is spirit')
+Definition:
+<BLANKLINE>
+God is spirit
+
+-------------------------------------------------------------------------------
+<<< first delimiter is a '?'
+>>> text_indentation('Who am I? I am a new creation')
+Who am I?
+<BLANKLINE>
+I am a new creation
+
+-------------------------------------------------------------------------------
+<<< Delimiter at the end
+>>> text_indentation('What do I love most? To learn new skills.')
+What do I love most?
+<BLANKLINE>
+To learn new skills.
+<BLANKLINE>
+
+-------------------------------------------------------------------------------
+<<< More delimited text
+>>> text_indentation('Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+... + 'Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? '
+... + 'Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: '
+... + 'Plus semper voluptatis?')
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+<BLANKLINE>
+Quonam modo?
+<BLANKLINE>
+Utrum igitur tibi litteram videor an totas paginas commovere?
+<BLANKLINE>
+Non autem hoc:
+<BLANKLINE>
+igitur ne illud quidem.
+<BLANKLINE>
+Fortasse id optimum, sed ubi illud:
+<BLANKLINE>
+Plus semper voluptatis?
+<BLANKLINE>
+
+-------------------------------------------------------------------------------
+<<< Empty string
+>>> text_indentation('')
+
+-------------------------------------------------------------------------------
+<<< string with a space
+>>> text_indentation(' ')
+<BLANKLINE>
+
+-------------------------------------------------------------------------------
+<<< string with a single new line
+>>> text_indentation('\n')
+<BLANKLINE>
+
+-------------------------------------------------------------------------------
+<<< string with one character which is a delimiter
+>>> text_indentation('?')
+?
+<BLANKLINE>
+
+-------------------------------------------------------------------------------

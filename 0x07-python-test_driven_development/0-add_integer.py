@@ -4,6 +4,7 @@ This module contains the add_integer() function,
 which adds two numbers and returns their sum
 '''
 
+
 def add_integer(a, b=98):
     '''
     Adds two integers and returns the sum
