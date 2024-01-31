@@ -141,3 +141,14 @@ Traceback (most recent call last):
 TypeError: add_integer() missing 1 required positional argument: 'a'
 
 -------------------------------------------------------------------------------
+<<< one argument passed to function
+>>> add_integer(3)
+101
+
+-------------------------------------------------------------------------------
+<<< addition with Not-a-number
+>>> add_integer(2, float('nan'))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+
