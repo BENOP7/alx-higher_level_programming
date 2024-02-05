@@ -90,3 +90,15 @@ ValueError: att must be greater than 0
 Traceback (most recent call last):
 ...
 TypeError: att must be an integer
+
+>>> base.integer_validator(2, 3)
+>>> base.integer_validator(2, 0)
+Traceback (most recent call last):
+...
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+>>> base.integer_validator(-4, (2,))
+Traceback (most recent call last):
+...
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
