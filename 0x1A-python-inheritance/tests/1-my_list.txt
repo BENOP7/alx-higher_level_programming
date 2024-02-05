@@ -1,0 +1,118 @@
+Test cases for ``1-my_list`` module
+===============================================================================
+
+>>> MyList = __import__('1-my_list').MyList
+
+===============================================================================
+<<< test type of object
+>>> m = MyList()
+>>> isinstance(m, MyList)
+True
+
+-------------------------------------------------------------------------------
+<<< passing an argument which is not an iterable
+>>> a = MyList(4)
+Traceback (most recent call last):
+...
+TypeError: 'int' object is not iterable
+
+>>> a = MyList(True)
+Traceback (most recent call last):
+...
+TypeError: 'bool' object is not iterable
+
+>>> a = MyList({})
+>>> a
+[]
+
+>>> a = MyList(-8.99)
+Traceback (most recent call last):
+...
+TypeError: 'float' object is not iterable
+
+-------------------------------------------------------------------------------
+<<< passing the elements of the list in `__init__`
+>>> MyList(1, 2, 3, 4, 5)
+Traceback (most recent call last):
+...
+TypeError: list expected at most 1 argument, got 5
+
+--------------------------------------------------------------------------------
+<<< passing an iterable
+>>> c = MyList([1, 3, 2, 4])
+>>> c
+[1, 3, 2, 4]
+>>> c.print_sorted()
+[1, 2, 3, 4]
+
+>>> c = MyList((1, 3, 2, 4))
+>>> c
+[1, 3, 2, 4]
+>>> c.print_sorted()
+[1, 2, 3, 4]
+
+>>> c = MyList(range(4))
+>>> c
+[0, 1, 2, 3]
+>>> c.print_sorted()
+[0, 1, 2, 3]
+
+<<< creating instances of mylist
+>>> a = MyList()
+>>> b = MyList()
+>>> a
+[]
+>>> b
+[]
+>>> a is b
+False
+>>> a == b
+True
+
+-------------------------------------------------------------------------------
+<<< adding to mylist
+>>> a.append(1)
+>>> a.append(2)
+>>> a.append(0)
+>>> a
+[1, 2, 0]
+>>> print(a)
+[1, 2, 0]
+>>> a.print_sorted()
+[0, 1, 2]
+>>> a
+[1, 2, 0]
+
+--------------------------------------------------------------------------------
+<<< adding just 1 element to mylist
+>>> b = MyList()
+>>> b
+[]
+>>> b.append(2)
+>>> b
+[2]
+>>> b.print_sorted()
+[2]
+
+-------------------------------------------------------------------------------
+<<< appending in sorted order
+>>> c = MyList()
+>>> c.append(1)
+>>> c.append(2)
+>>> c.append(3)
+>>> c
+[1, 2, 3]
+>>> c.print_sorted()
+[1, 2, 3]
+
+--------------------------------------------------------------------------------
+<<< list with negative integers
+<<< appending in sorted order
+>>> c = MyList()
+>>> c.append(-1)
+>>> c.append(-2)
+>>> c.append(-3)
+>>> c
+[-1, -2, -3]
+>>> c.print_sorted()
+[-3, -2, -1]
