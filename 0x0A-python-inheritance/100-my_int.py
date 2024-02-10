@@ -10,7 +10,15 @@ class MyInt(int):
     malfunctioning
     '''
     def __eq__(self, other):
-        return self != other
+        if type(other) is type(self) or issubclass(self.__class__, int):
+            if self.__int__() == other.__int__():
+                return False
+            return True
+        super().__eq__(other)
 
     def __ne__(self, other):
-        return self == other
+        if type(other) is type(self) or issubclass(self.__class__, int):
+            if self.__int__() == other.__int__():
+                return True
+            return False
+        super().__eq__(other)
