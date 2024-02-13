@@ -12,7 +12,7 @@ class TestBase(unittest.TestCase):
     '''
     def test_an_instant_no_arg(self):
         b = Base()
-        assertEqual(b.id, 1)
+        self.assertEqual(b.id, 1)
 
     def test_instant(self):
         '''
