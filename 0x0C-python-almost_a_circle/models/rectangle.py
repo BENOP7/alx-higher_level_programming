@@ -3,7 +3,7 @@
 This module contains the rectangle class that inherits
 from the Base class
 '''
-from base import Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -62,7 +62,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         '''
-        Validates and sets the value of 
+        Validates and sets the value of
         '''
         if type(value) is not int:
             raise TypeError('height must be an integer')
@@ -96,7 +96,7 @@ class Rectangle(Base):
         return self.__y
 
     @y.setter
-    def (self, value):
+    def y(self, value):
         '''
         Validates and sets the value of y
         '''
@@ -105,3 +105,63 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError('y must be >= 0')
         self.__y = value
+
+    def area(self):
+        '''
+        returns the area of the geometry (rectangle)
+        '''
+        return self.__width * self.__height
+
+    def display(self):
+        '''
+        prints a representation of the rectangle using '#' character
+        '''
+        x = self.__x
+        y = self.__y
+        intercept = '\n' * y
+        print(intercept, end='')
+
+        for i in range(self.__height):
+            print(' ' * x, end='')
+            print('#' * self.__width)
+
+    def update(self, *args, **kwargs):
+        '''
+        updates the attributes of the rectangle instance
+        '''
+        n = len(args)
+        if n == 0:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
+            return
+        self.id = args[0]
+        if n > 1:
+            self.width = args[1]
+        if n > 2:
+            self.height = args[2]
+        if n > 3:
+            self.x = args[3]
+        if n > 4:
+            self.y = args[4]
+
+    def to_dictionary(self):
+        '''
+        returns a dictionary containing all the instance attributes of the
+        object
+        '''
+        prefix = '_{}__'.format(self.__class__.__name__)
+        obj_dict = {}
+
+        for key, value in self.__dict__.items():
+            if prefix in key:
+                obj_dict[key.replace(prefix, '')] = value
+            else:
+                obj_dict[key] = value
+        return obj_dict
+
+    def __str__(self):
+        return '[{}] ({:d}) {:d}/{:d} - {:d}/{:d}'.format(
+                self.__class__.__name__,
+                self.id,
+                self.__x, self.__y,
+                self.__width, self.__height)
