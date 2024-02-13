@@ -11,6 +11,10 @@ class TestBase(unittest.TestCase):
     '''
     Unit testing the base class
     '''
+    def test_an_instant_no_arg(self):
+        b = Base()
+        assertEqual(b.id, 1)
+
     def test_instant(self):
         '''
         running test
