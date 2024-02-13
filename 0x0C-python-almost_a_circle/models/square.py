@@ -29,19 +29,6 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
-    def display(self):
-        '''
-        prints a representation of the rectangle using '#' character
-        '''
-        x = self.__x
-        y = self.__y
-        intercept = '\n' * y
-        print(intercept, end='')
-
-        for i in range(self.__height):
-            print(' ' * x, end='')
-            print('#' * self.__width)
-
     def update(self, *args, **kwargs):
         '''
         updates the attributes of the rectangle instance
