@@ -119,10 +119,11 @@ class Base:
 
         with open(fname, "r") as cfile:
             if cls.__name__ == "Rectangle":
-               reader = csv.DictReader(cfile, fieldnames={'id','width',
-                                                          'height', 'x', 'y'})
+                reader = csv.DictReader(cfile, fieldnames={'id', 'width',
+                                        'height', 'x', 'y'})
             elif cls.__name__ == "Square":
-               reader = csv.DictReader(cfile, fieldnames={'id', 'size', 'x', 'y'})
+                reader = csv.DictReader(cfile, fieldnames={'id', 'size',
+                                                           'x', 'y'})
 
             instances = []
             for instance in reader:
