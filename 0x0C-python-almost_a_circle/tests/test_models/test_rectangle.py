@@ -3,10 +3,12 @@
 Contains the TestRectangle class for the unit testing of the
 Rectangle class
 '''
+import json
 import sys
 import unittest as ut
 from models.base import Base
 from models.rectangle import Rectangle
+from models.square import Square
 from io import StringIO
 
 
@@ -331,11 +333,47 @@ class TestRectangle(ut.TestCase):
         r.update(1, 2, 3, 4, x=-1, y=-2, width=3, height=0)
         self.assertEqual(r.__str__(), '[Rectangle] (1) 4/5 - 2/3')
 
-    def test_update_key_exc(self):
+    def test_update_key_new(self):
         r = Rectangle(4, 4, 4, 4, 5)
         r.update(height=1, breadth=0)
         self.assertEqual(r.__str__(), '[Rectangle] (5) 4/4 - 4/1')
         self.assertTrue(hasattr(r, 'breadth'))
+
+    def test_create_dict_is(self):
+        r1 = Rectangle(1, 2, 3, 5, 6)
+        r1_dict = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dict)
+        self.assertIsNot(r1, r2)
+
+    def test_save_to_file_none(self):
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as f:
+            content = json.load(f)
+            self.assertEqual(content, [])
+
+    def test_save_to_file_empty(self):
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as f:
+            content = json.load(f)
+            self.assertEqual(content, [])
+
+    def test_save_to_file_rect(self):
+        Rectangle.save_to_file([Rectangle(1, 2, 3, 4, 5)])
+        with open("Rectangle.json", "r") as f:
+            content = f.read()
+            self.assertEqual(json.loads(content), [{"id": 5,
+                                                    "width": 1, "height": 2,
+                                                    "x": 3, "y": 4}])
+
+    def test_save_to_file_noargs(self):
+        with self.assertRaises(TypeError):
+            Rectangle.save_to_file()
+
+    def test_save_to_file_type(self):
+        Rectangle.save_to_file([Rectangle(1, 2, 3, 4, 5)])
+        with open("Rectangle.json", "r") as f:
+            content = f.read()
+            self.assertEqual(str, type(content))
 
 
 
