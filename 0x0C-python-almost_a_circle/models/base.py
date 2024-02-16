@@ -35,3 +35,41 @@ class Base:
         if json_string is None or len(json_string) == 0:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """
+            writes the JSON strin representation of list_objs to a file
+        """
+        fname = cls.__name__ + ".json"
+        content = []
+
+        if list_objs is not None:
+            for obj in list_objs:
+                obj = obj.to_dictionary()
+                json_dict = json.loads(cls.to_json_string(obj))
+                content.append(json_dict)
+
+        with open(fname, "w") as jfile:
+            json.dump(content, jfile)
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+            serializes in CSV and saves in a file
+        """
+        fname = cls.__name__ + ".csv"
+
+        if list_objs is None:
+            with open(fname, "w") as cfile:
+                cfile.write("[]")
+        else:
+            with open(fname, "w") as cfile:
+                writer = csv.writer(cfile)
+                for obj in list_objs:
+                    if cls.__name__ == "Rectangle":
+                        writer.writerow(
+                            [obj.id, obj.width, obj.height, obj.x, obj.y]
+                        )
+                    if cls.__name__ == "Square":
+                        writer.writerow([obj.id, obj.width, obj.x, obj.y])
