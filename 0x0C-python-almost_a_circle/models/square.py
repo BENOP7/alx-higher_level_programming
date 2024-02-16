@@ -51,6 +51,17 @@ class Square(Rectangle):
         if n > 3:
             self.y = args[3]
 
+        def to_dictionary(self):
+            """
+            Return the dictionary representation of the Square.
+            """
+            return {
+                "id": self.id,
+                "size": self.width,
+                "x": self.x,
+                "y": self.y
+            }
+
     def __str__(self):
         return '[{}] ({:d}) {:d}/{:d} - {:d}'.format(
                 self.__class__.__name__,
