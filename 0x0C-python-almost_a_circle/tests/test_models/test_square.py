@@ -233,6 +233,10 @@ class TestSquare(unittest.TestCase):
         """
             Testing save to file with no arguments
         """
+        Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            content = json.load(f)
+            self.assertEqual(content, [])
         with self.assertRaises(TypeError):
             Square.save_to_file()
 
