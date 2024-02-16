@@ -99,7 +99,7 @@ class Base:
         try:
             with open(fname, encoding='utf8') as jfile:
                 content = cls.from_json_string(jfile.read())
-        except:
+        except Exception as e:
             return []
 
         instances = []
