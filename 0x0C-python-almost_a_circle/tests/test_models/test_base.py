@@ -3,8 +3,11 @@
 This contains the test class for the ``Base`` class
 
 '''
+import json
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestBase(unittest.TestCase):
@@ -56,6 +59,45 @@ class TestBase(unittest.TestCase):
         running test
         '''
         self.assertEqual(hasattr(Base(), 'id'), True)
+
+    def test_to_json_type(self):
+        """
+           test to_json type
+        """
+        sq = Square(9)
+        json_dict = sq.to_dictionary()
+        json_string = Base.to_json_string([json_dict])
+        self.assertEqual(type(json_string), str)
+
+    def test_to_json_value(self):
+        sq = Square(1, 0, 0, 9)
+        json_dict = sq.to_dictionary()
+        json_string = Base.to_json_string([json_dict])
+        self.assertEqual(json.loads(json_string), [{"id": 9, "y": 0,
+                                                    "size": 1, "x": 0}])
+    def test_to_json_None(self):
+        json_string = Base.to_json_string(None)
+        self.assertEqual(json_string, "[]")
+
+    def test_to_json_empty(self):
+        json_string = Base.to_json_string([])
+        self.assertEqual(json_string, "[]")
+
+    def test_from_json_string(self):
+        sq = Square(1, 0, 0, 234)
+        json_dict = sq.to_dictionary()
+        json_string = Base.to_json_string([json_dict])
+        json_list = Base.from_json_string(json_string)
+        self.assertEqual(json_list, [{'size': 1, 'x': 0, 'y': 0, 'id': 234}])
+
+    def test_from_json_none(self):
+        json_list = Base.from_json_string(None)
+        self.assertEqual(json_list, [])
+
+    def test_from_json_empty(self):
+        json_list = Base.from_json_string([])
+        self.assertEqual(json_list, [])
+
 
 
 if __name__ == '__main__':
