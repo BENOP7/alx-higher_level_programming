@@ -18,6 +18,21 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
+    @classmethod
+    def create(cls, **dictionary):
+        """
+            returns an instance with all attributes already set.
+        """
+        from models.rectangle import Rectangle
+        from models.square import Square
+
+        if cls.__name__ == "Rectangle":
+            mod = Rectangle(1, 2)
+        elif cls.__name__ == "Square":
+            mod = Square(1)
+        mod.update(**dictionary)
+        return (mod)
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """
