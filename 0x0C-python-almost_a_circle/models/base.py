@@ -109,3 +109,25 @@ class Base:
             instances.append(temp)
 
         return instances
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+            deserializes from CSV from a file.
+        """
+        fname = cls.__name__ + ".csv"
+
+        with open(fname, "r") as cfile:
+            if cls.__name__ == "Rectangle":
+               reader = csv.DictReader(cfile, fieldnames={'id','width',
+                                                          'height', 'x', 'y'})
+            elif cls.__name__ == "Square":
+               reader = csv.DictReader(cfile, fieldnames={'id', 'size', 'x', 'y'})
+
+            instances = []
+            for instance in reader:
+                instance = {x: int(y) for x, y in instance.items()}
+                temp = cls.create(**instance)
+                instances.append(temp)
+
+        return instances
