@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 '''
 	This file contains a script that lists all states from the database having name starting with
 	with N
